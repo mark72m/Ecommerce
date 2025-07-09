@@ -24,7 +24,7 @@ const WelcomeScreen = (props: Props) => {
       style={styles.background}>
       <View style={styles.wrapper}>
       <Animated.Text style={styles.title}
-      entering={FadeInRight.delay(300).duration(300)}>
+      entering={FadeInRight.delay(300).duration(300).springify()}>
         ShopAZ</Animated.Text>
       
       <Animated.Text style={styles.description}
@@ -34,7 +34,7 @@ const WelcomeScreen = (props: Props) => {
       </Animated.Text>
 
       <View style={styles.socialLoginWrapper}>
-      <Animated.View entering={FadeInDown.delay(300).duration(500)}>
+      <Animated.View entering={FadeInDown.delay(300).duration(500).springify()}>
       <Link href={"/signup"} asChild>
         <TouchableOpacity style={styles.button}>
           <Ionicons 
@@ -46,7 +46,7 @@ const WelcomeScreen = (props: Props) => {
       </Link>
       </Animated.View>
       
-      <Animated.View entering={FadeInDown.delay(700).duration(500)}>
+      <Animated.View entering={FadeInDown.delay(700).duration(500).springify()}>
         <TouchableOpacity style={styles.button}>
           <Google width={20} height={20}/>
           <Text style={styles.btnTxt}>Continue With Google</Text>
