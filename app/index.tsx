@@ -6,22 +6,26 @@ import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import Google from '@/assets/images/google-logo.svg'
 import Animated, { FadeInDown, FadeInRight } from "react-native-reanimated";
+
 type Props = {};
 
 const WelcomeScreen = (props: Props) => {
   return (
     <>
     <Stack.Screen options={{headerShown: false}}/>
+
     <ImageBackground 
     source={require("@/assets/images/ecommerce-splash.jpg")}
     style={{flex: 1}}
     resizeMode="cover">
 
     <View style={styles.container}>
-
+      
+      {/* Texts */}
       <LinearGradient 
       colors={["transparent", 'rgba(255, 255, 255, 0.9)','rgba(255, 255, 255, 1)']} 
       style={styles.background}>
+
       <View style={styles.wrapper}>
       <Animated.Text style={styles.title}
       entering={FadeInRight.delay(300).duration(300).springify()}>
@@ -33,6 +37,7 @@ const WelcomeScreen = (props: Props) => {
         Your Item is Just A Click Away..✈️
       </Animated.Text>
 
+      {/* Buttons */}
       <View style={styles.socialLoginWrapper}>
       <Animated.View entering={FadeInDown.delay(300).duration(500).springify()}>
       <Link href={"/signup"} asChild>
@@ -124,10 +129,10 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: "row",
     padding: 10,
-    borderColor: Colors.gray,
+    borderColor: Colors.black,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 20,
-    marginBottom: 10,//25
+    marginBottom: 20,//25
     marginTop: 1,
     alignItems: "center",
     justifyContent: "center",
