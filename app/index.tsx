@@ -1,12 +1,24 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Link, Stack } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
 
 type Props = {};
 
 const WelcomeScreen = (props: Props) => {
   return (
+    <>
+    <Stack.Screen options={{headerShown: false}}/>
+    <ImageBackground 
+    source={require("@/assets/images/ecommerce-splash.jpg")}
+    style={{flex: 1}}
+    resizeMode="cover">
+
     <View style={styles.container}>
+
+      <LinearGradient 
+      colors={["transparent", 'rgba(255, 255, 255, 0.9)','rgba(255, 255, 255, 1)']} 
+      style={styles.background}>
       <Text>Welcome Screen</Text>
       <Link href={"/signin"} asChild>
         <TouchableOpacity>
@@ -18,7 +30,11 @@ const WelcomeScreen = (props: Props) => {
           <Text>Go to SignUp Screen</Text>
         </TouchableOpacity>
       </Link>
+      </LinearGradient>
+
     </View>
+    </ImageBackground>
+    </>
   );
 };
 
@@ -30,4 +46,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  background: {
+    flex: 1,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "flex-end",
+
+  }
 });
