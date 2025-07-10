@@ -3,7 +3,7 @@ import {router, Stack} from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import { Colors} from '../constants/Colors'
 import React from 'react'
-import InputField from '@/components/inputField'
+import InputField from '@/components/InputField'
 
 type Props = {}
 
