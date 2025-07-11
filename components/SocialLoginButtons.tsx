@@ -2,17 +2,20 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import Animated, { FadeInDown } from 'react-native-reanimated'
-import { Link } from 'expo-router'
+import { Href, Link } from 'expo-router'
 import Google from '@/assets/images/google-logo.svg'
 import { Colors } from '@/constants/Colors'
 
-type Props = {}
+type Props = {
+    emailHref: Href<string | object>
+}
 
 const SocialLoginButtons = (props: Props) => {
+    const {emailHref} = props;
   return (
      <View style={styles.socialLoginWrapper}>
           <Animated.View entering={FadeInDown.delay(300).duration(500).springify()}>
-          <Link href={"/signup"} asChild>
+          <Link href={emailHref} asChild>
             <TouchableOpacity style={styles.button}>
               <Ionicons 
               name="mail-outline"
@@ -52,14 +55,16 @@ socialLoginWrapper: {
   button: {
     flexDirection: "row",
     padding: 10,
-    borderColor: Colors.black,
+    borderColor: Colors.cynan,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 20,
     marginBottom: 20,//25
     marginTop: 1,
     alignItems: "center",
     justifyContent: "center",
-    gap: 10
+    gap: 10,
+    marginLeft: 5,
+    marginRight: 5
   },
   btnTxt: {
     fontSize: 14,

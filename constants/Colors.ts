@@ -6,6 +6,8 @@ export const Colors = {
   white: '#fff',
   background: "#F0F0F0",
   highlight: '#F4CE14',
+  cynan: "#239CBD",
+  colo: "#49C858",
 }
   {/*primary: "#2E7D32",
   background: "#E8F5E9",

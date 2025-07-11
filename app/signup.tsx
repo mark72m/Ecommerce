@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { Colors} from '../constants/Colors'
 import React from 'react'
 import InputField from '@/components/InputField'
+import SocialLoginButtons from '@/components/SocialLoginButtons'
 
 type Props = {}
 
@@ -16,7 +17,7 @@ const SignUpScreen = (props: Props) => {
       </TouchableOpacity>
   )}}/>
     <View style={styles.container}>
-      <Text style={styles.title}>Create Your Account</Text>
+      <Text style={styles.title}>👩🏽‍💻 Create Your Account</Text>
 
       <InputField 
       placeholder='Email Address'
@@ -45,7 +46,10 @@ const SignUpScreen = (props: Props) => {
               </TouchableOpacity>
             </Link>
             </Text>
+
             <View style={styles.divider}/>
+
+            <SocialLoginButtons emailHref={"/signin"}/>
     </View>
     </>
   )
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 50
   },
   btn: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.colo,
     paddingVertical: 14,
     paddingHorizontal: 18,
     alignSelf: 'stretch',
@@ -84,14 +88,14 @@ const styles = StyleSheet.create({
     fontWeight: `600`
   },
   loginTxt: {
-    marginBottom: 30,
+    marginBottom: 20,
     fontSize: 14,
     fontWeight: "600",
     color: Colors.black,
     lineHeight: 24,
   },
   loginTxtSpan: {
-    marginBottom: 30,
+    marginBottom: 20,
     fontWeight: "600",
     color: Colors.primary,
   },
