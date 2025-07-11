@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import { BottomTabBarProps }  from '@react-navigation/bottom-tabs'
+import  TabBarButton  from './TabBarButton'
 
 export function TabBar({ state, descriptors, navigation } : BottomTabBarProps) {
     return (
@@ -35,20 +36,13 @@ export function TabBar({ state, descriptors, navigation } : BottomTabBarProps) {
                 };
 
                 return (
-                    <TouchableOpacity
-                        key={route.name}
-                        accessibilityRole="button"
-                        accessibilityState={isFocused ? { selected: true } : {}}
-                        accessibilityLabel={options.tabBarAccessibilityLabel}
-                        testID={options.tabBarTestID}
-                        onPress={onPress}
-                        onLongPress={onLongPress}
-                        style={{ flex: 1 }}
-                    >
-                        <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                            {label}
-                        </Text>
-                    </TouchableOpacity>
+                    <TabBarButton 
+                    key={route.key}
+                    onPress={onPress}
+                    onLongPress={onLongPress}
+                    isFocused={isFocused} 
+                    label={label} 
+                    routeName={route.name}/>
                 );
             })}
         </View>
