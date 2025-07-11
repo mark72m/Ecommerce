@@ -4,8 +4,8 @@ import { Link, Stack } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import Google from '@/assets/images/google-logo.svg'
 import Animated, { FadeInDown, FadeInRight } from "react-native-reanimated";
+import SocialLoginButtons from "@/components/SocialLoginButtons";
 
 type Props = {};
 
@@ -38,36 +38,8 @@ const WelcomeScreen = (props: Props) => {
       </Animated.Text>
 
       {/* Buttons */}
-      <View style={styles.socialLoginWrapper}>
-      <Animated.View entering={FadeInDown.delay(300).duration(500).springify()}>
-      <Link href={"/signup"} asChild>
-        <TouchableOpacity style={styles.button}>
-          <Ionicons 
-          name="mail-outline"
-          size={20}
-          color={Colors.black}/>
-          <Text style={styles.btnTxt}>Continue With Email</Text>
-        </TouchableOpacity>
-      </Link>
-      </Animated.View>
-      
-      <Animated.View entering={FadeInDown.delay(700).duration(500).springify()}>
-        <TouchableOpacity style={styles.button}>
-          <Google width={20} height={20}/>
-          <Text style={styles.btnTxt}>Continue With Google</Text>
-        </TouchableOpacity>    
-      </Animated.View>
-      
-      <Animated.View entering={FadeInDown.delay(1100).duration(500)}>
-        <TouchableOpacity style={styles.button}>
-          <Ionicons 
-          name="logo-apple"
-          size={20}
-          color={Colors.black}/>
-          <Text style={styles.btnTxt}>Continue With Apple</Text>
-        </TouchableOpacity> 
-      </Animated.View>     
-      </View>
+      <SocialLoginButtons/>
+     
 
       <Text style={styles.loginTxt}> Already Have an Account? {" "} 
       <Link href={"/signin"} asChild>
@@ -123,36 +95,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: "center"
   },
-  socialLoginWrapper: {
-    alignSelf: "stretch",
-  },
-  button: {
-    flexDirection: "row",
-    padding: 10,
-    borderColor: Colors.black,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 20,
-    marginBottom: 20,//25
-    marginTop: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 10
-  },
-  btnTxt: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: Colors.black,
-
-  },
+  
   loginTxt: {
-    marginTop: 30,
+    marginTop: 10,
     fontSize: 14,
     fontWeight: "600",
     color: Colors.black,
     lineHeight: 24,
   },
   loginTxtSpan: {
-    marginTop: 30,
+    marginTop: 10,
     fontWeight: "600",
     color: Colors.primary,
   },

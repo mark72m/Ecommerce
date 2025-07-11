@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import {router, Stack} from 'expo-router'
+import {Link, router, Stack} from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import { Colors} from '../constants/Colors'
 import React from 'react'
@@ -33,6 +33,19 @@ const SignUpScreen = (props: Props) => {
       placeholder='Confirm Password'
       placeholderTextColor={Colors.gray}
       secureTextEntry={true}/>
+
+      <TouchableOpacity style={styles.btn}>
+        <Text style={styles.btnTxt}>Create Account</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.loginTxt}> Already Have an Account? {" "} 
+            <Link href={"/signin"} asChild>
+              <TouchableOpacity>
+                <Text style={styles.loginTxtSpan}>SignIn</Text>
+              </TouchableOpacity>
+            </Link>
+            </Text>
+            <View style={styles.divider}/>
     </View>
     </>
   )
@@ -54,5 +67,39 @@ const styles = StyleSheet.create({
     color: Colors.black,
     marginBottom: 50
   },
+  btn: {
+    backgroundColor: Colors.primary,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    borderRadius: 13,
+    marginBottom: 20,
+    marginLeft: 5,
+    marginRight: 5
+  },
+  btnTxt: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: `600`
+  },
+  loginTxt: {
+    marginBottom: 30,
+    fontSize: 14,
+    fontWeight: "600",
+    color: Colors.black,
+    lineHeight: 24,
+  },
+  loginTxtSpan: {
+    marginBottom: 30,
+    fontWeight: "600",
+    color: Colors.primary,
+  },
+  divider: {
+    borderTopColor: Colors.gray,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    width: '50%',
+    marginBottom: 30
+  }
 
 })

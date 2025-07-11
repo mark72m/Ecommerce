@@ -16,7 +16,7 @@ export default InputField;
 
 const styles = StyleSheet.create({
     inputField: {
-        backgroundColor: Colors.background,
+        backgroundColor: Colors.white,
         paddingVertical: 13,
         paddingHorizontal: 15,
         alignSelf: 'stretch',
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
         color: Colors.black,
         marginBottom: 20,
         marginLeft: 5,
-        marginRight: 10    
+        marginRight: 5    
   }
 })
