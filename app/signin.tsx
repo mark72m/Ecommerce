@@ -40,7 +40,7 @@ const SignInScreen = (props: Props) => {
           </TouchableOpacity>
     
           <Text style={styles.loginTxt}> Don't Have an Account? {" "} 
-                <Link href={"/signin"} asChild>
+                <Link href={"/signup"} asChild>
                   <TouchableOpacity>
                     <Text style={styles.loginTxtSpan}>SignUp</Text>
                   </TouchableOpacity>
