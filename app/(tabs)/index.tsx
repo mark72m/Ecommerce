@@ -2,6 +2,8 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { ProductType } from '@/types/type';
+import { Stack } from 'expo-router';
+import Header from '@/components/Header';
 
 type Props = {}
 
@@ -22,6 +24,11 @@ const HomeScreen = (props: Props) => {
     setIsLoading(false);
   }
   return (
+    <>
+    <Stack.Screen options={{
+      headerShown: true,
+         
+      }}/>
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <FlatList 
@@ -29,6 +36,7 @@ const HomeScreen = (props: Props) => {
       keyExtractor={(item) => item.id.toString()} 
       renderItem={({index, item}) => <Text>{item.title}</Text>}/>
     </View>
+    </>
   )
 }
 
