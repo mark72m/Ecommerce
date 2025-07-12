@@ -37,7 +37,7 @@ export function TabBar({ state, descriptors, navigation } : BottomTabBarProps) {
 
                 return (
                     <TabBarButton 
-                    key={route.key}
+                    key={route.name}
                     onPress={onPress}
                     onLongPress={onLongPress}
                     isFocused={isFocused} 
