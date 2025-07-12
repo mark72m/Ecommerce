@@ -8,6 +8,7 @@ export const Colors = {
   highlight: '#F4CE14',
   cynan: "#239CBD",
   colo: "#49C858",
+  dee: "#DEEBFD"
 }
   {/*primary: "#2E7D32",
   background: "#E8F5E9",

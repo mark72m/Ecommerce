@@ -18,6 +18,11 @@ const TabBarButton = (props: Props) => {
     onPress={onPress}
     onLongPress={onLongPress}
     style={styles.tabbarBtn }>
+        {routeName == "cart" && (
+            <View style={styles.badgeWrapper}>
+                <Text style={styles.badgeText}>3</Text>
+            </View>
+        )}
         {icon[routeName]({
             color: isFocused ? Colors.primary : Colors.black,
         })}
@@ -39,4 +44,18 @@ const styles = StyleSheet.create({
         gap: 5,
         
       },
+      badgeWrapper: {
+        position: "absolute",
+        backgroundColor: Colors.highlight,
+        top: -5,
+        right: 20,
+        paddingVertical: 2,
+        paddingHorizontal: 6,
+        borderRadius: 10,
+        zIndex: 10,
+      },
+      badgeText: {
+        color: Colors.black,
+        fontSize: 15 ,
+      }
 })
