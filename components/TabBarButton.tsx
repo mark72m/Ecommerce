@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
+import { icon } from '@/constants/icons';
+import { Colors } from '@/constants/Colors';
 
 type Props = {
     onPress: Function;
@@ -16,6 +18,10 @@ const TabBarButton = (props: Props) => {
     onPress={onPress}
     onLongPress={onLongPress}
     style={styles.tabbarBtn }>
+        {icon[routeName]({
+            color: isFocused ? Colors.primary : Colors.black,
+        })}
+
         <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
             {label}
         </Text>
