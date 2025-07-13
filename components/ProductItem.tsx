@@ -2,6 +2,8 @@ import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'rea
 import React from 'react'
 import { ProductType } from '@/types/type'
 import { Ionicons } from '@expo/vector-icons'
+import { Colors } from '@/constants/Colors'
+import Animated, { FadeInDown } from 'react-native-reanimated'
 
 
 type Props = {
@@ -12,13 +14,20 @@ const width = Dimensions.get('window').width - 40;
 
 const ProductItem = ({item}: Props) => {
   return (
-          <View style={styles.container}>
+          <Animated.View style={styles.container} entering={FadeInDown.delay(300).duration(500)}>
             <Image source={{uri:item.images[0]}} style={styles.productImg} /> 
             <TouchableOpacity style={styles.bookmarkBtn}>
-                <Ionicons name='heart-outline' size={22} color='white'/>
+                <Ionicons name='heart-outline' size={22} color='black'/>
             </TouchableOpacity>
-            <Text>{item.title}</Text>
-          </View>
+            <View style={styles.productInfo}>
+                <Text style={styles.price}>${item.price}</Text>
+                <View style={styles.ratingWrapper}>
+                    <Ionicons name='star' size={20} color={"#D4AF37"}/>
+                    <Text style={styles.rating}>4.7</Text>
+                </View>
+            </View>
+            <Text style={styles.title}>{item.title}</Text>
+          </Animated.View>
   )
 }
 
@@ -37,6 +46,34 @@ const styles = StyleSheet.create({
    bookmarkBtn: {
      position: 'absolute',
      top: 10,
-     right: 10
+     right: 10,
+     backgroundColor: "rgba(255,255,255, 0.5)",
+     padding: 5,
+     borderRadius: 30
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.black,
+    letterSpacing: 1
+  },
+  productInfo: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 8
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: Colors.cynan
+  },
+  ratingWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5
+  },
+  rating: {
+    fontSize: 14,
+    color: Colors.gray
   }
 })
