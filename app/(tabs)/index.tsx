@@ -27,6 +27,9 @@ const HomeScreen = (props: Props) => {
     <>
     <Stack.Screen options={{
       headerShown: true,
+      header: () => (
+        <Header/>
+      ),
          
       }}/>
     <View style={styles.container}>
@@ -34,7 +37,12 @@ const HomeScreen = (props: Props) => {
       <FlatList 
       data={products} 
       keyExtractor={(item) => item.id.toString()} 
-      renderItem={({index, item}) => <Text>{item.title}</Text>}/>
+      renderItem={({index, item}) => (
+      <View>
+      <Text>{item.title}</Text>
+      </View>
+      )}/>
+      
     </View>
     </>
   )
