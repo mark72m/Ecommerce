@@ -7,14 +7,15 @@ import Animated, { FadeInDown } from 'react-native-reanimated'
 
 
 type Props = {
-    item: ProductType
+    item: ProductType;
+    index: number;
 }
 
 const width = Dimensions.get('window').width - 40;
 
-const ProductItem = ({item}: Props) => {
+const ProductItem = ({item, index}: Props) => {
   return (
-          <Animated.View style={styles.container} entering={FadeInDown.delay(300).duration(500)}>
+          <Animated.View style={styles.container} entering={FadeInDown.delay(300 + index * 100).duration(500)}>
             <Image source={{uri:item.images[0]}} style={styles.productImg} /> 
             <TouchableOpacity style={styles.bookmarkBtn}>
                 <Ionicons name='heart-outline' size={22} color='black'/>
