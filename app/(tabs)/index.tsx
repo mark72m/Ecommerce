@@ -1,4 +1,4 @@
-import { FlatList, Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { CategoryType, ProductType } from '@/types/type';
@@ -14,12 +14,14 @@ type Props = {}
 
 const HomeScreen = (props: Props) => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [saleProducts, setsaleProducts] = useState<ProductType[]>([]);
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getCategories();
     getProducts();
+    getSaleProducts();
   }, []);
 
   const getProducts = async () => {
@@ -39,6 +41,23 @@ const HomeScreen = (props: Props) => {
     setCategories(response.data);
     setIsLoading(false);
   }
+
+  const getSaleProducts = async () => {
+    const URL = 'http://localhost:8000/saleProducts';
+    const response = await axios.get(URL);
+
+    //console.log(response.data);
+    setsaleProducts(response.data);
+    setIsLoading(false);
+  };
+
+  if(isLoading) {
+    return (
+      <View>
+        <ActivityIndicator size={'large'}/> 
+      </View>
+    )
+  }
   return (
     <>
     <Stack.Screen options={{
@@ -47,9 +66,16 @@ const HomeScreen = (props: Props) => {
         <Header/>
       ),         
       }}/>
+      <ScrollView>
       <Categories categories={categories}/>
-      <FlashSale />
+      <FlashSale products={saleProducts}/>
+      <View style={{marginHorizontal: 20, marginBottom: 10}}>
+        <Image 
+        source={require('@/assets/images/sale-banner.jpg')}
+        style={{width: '100%', height: 150, borderRadius: 15}}/>
+      </View>
       <ProductList products={products}/>
+      </ScrollView>
     </>
   )
 }

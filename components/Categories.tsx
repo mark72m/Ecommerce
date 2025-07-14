@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   title: {
-    fontSize: 10,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '800',
     letterSpacing: 0.6,
     color: Colors.black
   },
   titleBtn: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '500',
     letterSpacing: 0.6,
     color: Colors.black

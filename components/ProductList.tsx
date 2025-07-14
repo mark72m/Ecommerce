@@ -6,9 +6,10 @@ import { ProductType } from '@/types/type'
 
 type Props = {
     products: ProductType[];
+    flatlist: boolean
 }
 
-const ProductList = ({products}: Props) => {
+const ProductList = ({products, flatlist = true}: Props) => {
   return (
     <View style={styles.container}>
           <View style={styles.titleWrapper}>
@@ -17,6 +18,8 @@ const ProductList = ({products}: Props) => {
             <Text style={styles.titleBtn}>See All</Text>
           </TouchableOpacity>
           </View>
+
+          
     
           <FlatList 
           data={products} 
@@ -42,16 +45,17 @@ const styles = StyleSheet.create({
   titleWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 10
   },
   title: {
-    fontSize: 10,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '800',
     letterSpacing: 0.6,
     color: Colors.black
   },
   titleBtn: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '500',
     letterSpacing: 0.6,
     color: Colors.black

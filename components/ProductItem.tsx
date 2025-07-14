@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: Colors.black,
-    letterSpacing: 1
+    letterSpacing: 1,
+    marginBottom: 0
   },
   productInfo: {
     flexDirection: "row",

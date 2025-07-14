@@ -2,11 +2,16 @@ import { View, Text, Image, FlatList, TouchableOpacity, StyleSheet } from 'react
 import React, { useEffect, useState } from 'react'
 import { Colors } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
+import { ProductType } from '@/types/type'
+import ProductItem from './ProductItem'
 
-type Props = {}
+type Props = {
+    products: ProductType[]
+}
 
-const FlashSale = (props: Props) => {
+const FlashSale = ({products}: Props) => {
     const saleEndDate = new Date();
+    //saleEndDate.setFullYear(2025, 9, 2)
     saleEndDate.setDate(saleEndDate.getDate() + 2);
     saleEndDate.setHours(23, 59, 59)
 
@@ -64,6 +69,17 @@ const FlashSale = (props: Props) => {
                 <Text style={styles.titleBtn}>See All</Text>
             </TouchableOpacity>
         </View>
+        <FlatList 
+            data={products}
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{marginLeft: 20, paddingRight: 10}}
+            keyExtractor={(item) => item.id.toString()} 
+            renderItem={({item, index}) => (
+            <View style={{marginRight: 20}}>
+                <ProductItem index={index} item={item}/>
+            </View> 
+        )}/>
     </View>
   )
 }
@@ -77,16 +93,17 @@ const styles = StyleSheet.create({
   titleWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    marginBottom: 15
   },
   title: {
-    fontSize: 10,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '800',
     letterSpacing: 0.6,
     color: Colors.black
   },
   titleBtn: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '500',
     letterSpacing: 0.6,
     color: Colors.black
