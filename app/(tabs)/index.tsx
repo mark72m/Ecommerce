@@ -74,7 +74,7 @@ const HomeScreen = (props: Props) => {
         source={require('@/assets/images/sale-banner.jpg')}
         style={{width: '100%', height: 150, borderRadius: 15}}/>
       </View>
-      <ProductList products={products}/>
+      <ProductList products={products} flatlist={false}/>
       </ScrollView>
     </>
   )

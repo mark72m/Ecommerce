@@ -19,19 +19,30 @@ const ProductList = ({products, flatlist = true}: Props) => {
           </TouchableOpacity>
           </View>
 
-          
+          {flatlist ? (
+            <FlatList 
+            data={products} 
+            numColumns={2}
+            columnWrapperStyle={{
+              justifyContent: 'space-between',
+              marginBottom: 20
+            }}
+            keyExtractor={(item) => item.id.toString()} 
+            renderItem={({index, item}) => (
+              <ProductItem item={item} index={index}/>
+              )}/>
+
+          ) : (
+            <View style={styles.itemsWrapper}>
+              {products.map((item, index) => (
+                <View key={index} style={styles.productWrapper}>
+                  <ProductItem item={item} index={index}/>
+                </View>
+              ))}
+            </View>
+          )}         
     
-          <FlatList 
-          data={products} 
-          numColumns={2}
-          columnWrapperStyle={{
-            justifyContent: 'space-between',
-            marginBottom: 20
-          }}
-          keyExtractor={(item) => item.id.toString()} 
-          renderItem={({index, item}) => (
-            <ProductItem item={item} index={index}/>
-      )}/>
+          
         </View>
   )
 }
@@ -59,6 +70,18 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 0.6,
     color: Colors.black
+  },
+  itemsWrapper: {
+    flexDirection: 'row',
+    width: '100%',
+    flexWrap: 'wrap',
+    alignItems: 'stretch',
+  },
+  productWrapper: {
+    width: '50%',
+    paddingLeft: 5,
+    marginBottom: 20
+
   }
   
 })
