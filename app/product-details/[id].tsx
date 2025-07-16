@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import axios from 'axios'
 import { ProductType } from '@/types/type'
+import ImageSlider from '@/components/ImageSlider'
 
 type Props = {}
 
@@ -23,9 +24,12 @@ const ProductDetails = (props: Props) => {
   }
   return (
     <View>
-      <Text>{product.title}</Text>
+      {product && <ImageSlider imageList={product.images}/>}
+      {product &&<Text>{product.title}</Text>}
     </View>
   )
 }
 
-export default ProductDetails
+export default ProductDetails;
+
+const styles = StyleSheet.create({})
