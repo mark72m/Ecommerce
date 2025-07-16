@@ -34,6 +34,7 @@ const ProductItem = ({item, index}: Props) => {
           </Animated.View>
           </TouchableOpacity>
           </Link>
+          
   )
 }
 
