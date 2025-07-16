@@ -27,7 +27,7 @@ const ImageSlider = ({imageList}: Props) => {
       showsHorizontalScrollIndicator={false}
       pagingEnabled/>
 
-      <Pagination />
+      <Pagination items={imageList} paginationIndex={0}/>
     </View>
   )
 }
