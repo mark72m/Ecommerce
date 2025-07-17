@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
       fontWeight: `600`
     },
     loginTxt: {
+      marginTop: 5,
       marginBottom: 20,
       fontSize: 14,
       fontWeight: "600",
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
       lineHeight: 24,
     },
     loginTxtSpan: {
+      marginTop: 5,
       marginBottom: 20,
       fontWeight: "600",
       color: Colors.primary,
